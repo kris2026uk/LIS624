@@ -20,3 +20,5 @@ To practice my **list** I will show the days my kids have been out of school:
  
       It has not been pretty like this:
      ![SNOW](https://aldianews.com/sites/default/files/articles/Haanja_2010_01_1_0.jpg)
+     
+     Our snow turned to ice and has caused lots of problems.
