@@ -2,6 +2,9 @@
 ## This is my first repository.
 
 I will be using Github to practice and learn about systems.
+This repository will contain my work in my Systems class, my notes, and my practice files.
+This week I learned many new things, such as setting up a GITHUB (and what that is), pulling a file and
+pushing a file back. 
 
 To practice my **list** I will show the days my kids have been out of school:
 * *Week 1*
@@ -22,3 +25,5 @@ To practice my **list** I will show the days my kids have been out of school:
      ![SNOW](https://aldianews.com/sites/default/files/articles/Haanja_2010_01_1_0.jpg)
      
      Our snow turned to ice and has caused lots of problems.
+     
+     
