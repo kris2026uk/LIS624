@@ -20,18 +20,19 @@ remove or delete a file or directory........ rm
 For adding and removing software:
 sudo apt update -- searches for updates 
 sudo apt upgrade -- upgrades files
-apt search  - finds software
+apt search <name> - finds software
 apt show
-sudo apt install installs sofware
+sudo apt install <name>   installs sofware
 sudo apt --purge remove
 sudo apt autoremove
 sudo apt clean
-
-
-
 
 edit for my text editor
 
 grep to search 
 grep -i "searchterm" file - to look for both upper and lower case specific words
 grep -Ei "(bsd|atari)" operating-systems.csv  --- boolean search OR
+
+
+yaz-client - to search on libraries website, must connect via link
+Z> open saalck-uky.alma.exlibrisgroup.com:1921/01SAA_UKY  --links to UK Library
