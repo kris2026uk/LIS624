@@ -1,0 +1,37 @@
+Systems Class notes
+
+ls - to view  files
+clear - to clear the screen
+exit to close window
+
+list files and directories.................. ls
+print name of current/working directory..... pwd
+create a new directory...................... mkdir
+remove or delete an empty directory......... rmdir
+change directory............................ cd
+create an empty file........................ touch
+print characters to output.................. echo
+display contents of a text file............. cat
+copy a file or directory.................... cp
+move or rename a file or directory.......... mv
+remove or delete a file or directory........ rm
+
+
+For adding and removing software:
+sudo apt update -- searches for updates 
+sudo apt upgrade -- upgrades files
+apt search  - finds software
+apt show
+sudo apt install installs sofware
+sudo apt --purge remove
+sudo apt autoremove
+sudo apt clean
+
+
+
+
+edit for my text editor
+
+grep to search 
+grep -i "searchterm" file - to look for both upper and lower case specific words
+grep -Ei "(bsd|atari)" operating-systems.csv  --- boolean search OR
