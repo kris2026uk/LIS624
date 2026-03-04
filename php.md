@@ -28,8 +28,11 @@ I created the file
 phpinfo();
 ?>
 saved and exited.
-Then using my http://34.171.177.119/info.php website, I brought up what I created in the VM and verified it worked.
+Then using my http://XXX/info.php website, I brought up what I created in the VM and verified it worked.
 
+After verfiying, I deleted the file  using sudo rm /var/www/html/info.php
 
+after deleting the file, I backed out too far of my VM, so i needed to re add my document root.
+I could tell i did this when i typed in /var/www/html/ and I kept getting error messages. I needed to be in cd /var/www/html/ in order to pull the directory next.
 
 
