@@ -35,4 +35,8 @@ After verfiying, I deleted the file  using sudo rm /var/www/html/info.php
 after deleting the file, I backed out too far of my VM, so i needed to re add my document root.
 I could tell i did this when i typed in /var/www/html/ and I kept getting error messages. I needed to be in cd /var/www/html/ in order to pull the directory next.
 
+I saved a copy of the file dir.conf so that if it got messed up, I could reload it.
+Then I went into the file and put the index.php file before the index.html file and deleted the additional index.php. after saving and exiting, the system will now look and load the php index file before the html file.
+
+
 
