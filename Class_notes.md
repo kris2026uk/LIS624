@@ -9,9 +9,13 @@
 
 The italics commands are the ones I am using often:
 *1. list files and directories.................. ls*
+
 2. print name of current/working directory..... pwd
+
 3. create a new directory...................... mkdir
-4. remove or delete an empty directory......... rmdir
+
+4. 
+5. remove or delete an empty directory......... rmdir
 *5. change directory............................ cd*
 6. create an empty file........................ touch
 7. print characters to output.................. echo
