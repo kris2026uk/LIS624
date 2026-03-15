@@ -27,3 +27,24 @@ We want to create a user separate from the main root user- so we need to close m
 we then use this command to create the new user 
 "mysql> create user 'USERNAME'@'localhost' identified by 'PASSWORD';
 
+use ctrl - l to clear the screen within mySQL.
+
+After creating this new user, we need to create a new database for it and give it permissions
+you do so with the following commands within mysql
+
+mysql> create database opacdb default character set utf8mb4 collate utf8mb4_0900_ai_ci;
+mysql> show databases;
+mysql> grant all privileges on opacdb.* to 'opacuser'@'localhost';
+
+These will allow for our user 'opacuser' to have all privileges in the mysql database when logging in from our home directory. 
+If you do not want a user to have all the permissions for mysql, you can limit them by dputting in the follow priviledges:
+CREATE
+DROP
+DELETE
+INSERT
+SELECT
+UPDATE
+GRANT OPTION
+
+
+
