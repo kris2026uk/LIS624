@@ -133,7 +133,10 @@ We want the index.php file to pull up first. In order to do this, we must manual
 
 </body>
 </html>
+>
 
+Save and exit the file.
+The final step is to verify it works, do this by pulling your IP address website : http://IP.address/
    
    
 
