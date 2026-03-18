@@ -1,14 +1,28 @@
- Instructions for Downloading and using MySQL
+ #Instructions for Downloading and using MySQL
 
- For downloading the METAVERSION 
- sudo apt install mysql-server
+MySQL is an integral part of the LAMP stack. It is neccessary for....
 
- To download the policy: apt policy mysql-server
-And checking the version of MySQL- mysql --version
+The first step is to ensure that the current software is updated, so use the following commands to check for updates and update if neccessary:
 
-Then Check the status of the program- systemctl status mysql 
+**sudo apt update**
+**sudo apt upgrade**
 
-This is an important step! making it -- sudo mysql_secure_installation
+ For downloading the METAVERSION use the following command:
+ 
+ **sudo apt install mysql-server**
+
+ Use the following commands to download the policy and see the version of MySQL: 
+ 
+ **apt policy mysql-server**
+ 
+ **mysql --version**
+
+Then Check the status of the program to ensure that is installed and running by using the following command:
+
+**systemctl status mysql** 
+
+This is an important step! 
+making it -- sudo mysql_secure_installation
  When requested this is what we want for the secure install:
  Validate passwords: Y
  Password validation policy: 0 (zero) for LOW
