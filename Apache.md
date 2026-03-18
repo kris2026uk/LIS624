@@ -44,6 +44,8 @@ You can also view your websites by using your default web page from your virtual
 
 -http://IP-ADDRESS
 
+**Next** *Its time to create your website*
+
 
   
 
