@@ -139,7 +139,7 @@ You can test to confirm the books have been added by using the following command
 
 **select * from books;**
 
-You can practice making changes to your database by using the following commands:
+You can practice making changes to your database by using the following commands. These commands can add/remove data from your database:
 
 **select author from books;**
 
@@ -183,6 +183,135 @@ You can practice making changes to your database by using the following commands
 **select author from books order by copyright;**
 
 **\q**
+
+The last part of our LAMP stack is bringing all the parts together. We do this first by insalling the PHP support for MySQL. Use the following command:
+
+**sudo apt install php-mysql**
+
+Then we must restart both software systems using the following commands:
+
+**sudo systemctl restart apache2**
+
+**sudo systemctl restart mysql**
+
+We now have to create a login in our root directory, so that our PHP can coonnect to MySQL. Use the following commands to create a file in the directory. We also need to change ownership fo the file and its permissions. Apache will beable to read the file but it will not be made public. *this is an important security step!* The *chmod* command changes the files permissions and the *shown* command changes its ownership.
+
+**cd /var/www**
+
+**sudo touch login.php**
+
+**sudo chmod 640 login.php**
+
+**sudo chown :www-data login.php**
+
+**ls -l login.php**
+
+**sudo nano login.php**
+
+These steps only created the file, we must now add our login and database to it so that it will store and use the information. Add the following to the file:
+
+<?php // login.php
+
+$db_hostname = "localhost";
+
+$db_database = "opacdb";
+
+$db_username = "USERNAME";
+
+$db_password = "PASSWORD";
+
+?>
+
+
+Now we create a PHP file for our website. Use the following commands to create the files:
+
+**cd /var/www/html**
+
+**sudo edit opac.php**
+
+Copy the following text to add it to your file:
+
+>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MySQL Server Example</title>
+</head>
+<body>
+
+    <h1>A Basic OPAC</h1>
+    <p>We can retrieve all the data from our database and book table using a couple of different queries.</p>
+
+    <?php
+    // Load MySQL credentials securely
+    require_once '/var/www/login.php';
+
+    // Enable detailed MySQL error reporting
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
+    // Establish database connection
+    $conn = new mysqli($db_hostname, $db_username, $db_password, $db_database);
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    echo "<h2>Query 1: Retrieving Publisher and Author Data</h2>";
+
+    // Query using prepared statement
+    $stmt = $conn->prepare("SELECT publisher, author FROM books");
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    while ($row = $result->fetch_assoc()) {
+        echo "<p>Publisher " . htmlspecialchars($row["publisher"]) .
+             " published a book by " . htmlspecialchars($row["author"]) . ".</p>";
+    }
+
+    $stmt->close();
+
+    echo "<h2>Query 2: Retrieving Author, Title, and Date Published Data</h2>";
+
+    $stmt2 = $conn->prepare("SELECT author, title, copyright FROM books");
+    $stmt2->execute();
+    $result2 = $stmt2->get_result();
+
+    while ($row = $result2->fetch_assoc()) {
+        echo "<p>A book by " . htmlspecialchars($row["author"]) .
+             " titled <em>" . htmlspecialchars($row["title"]) .
+             "</em> was released in " . htmlspecialchars($row["copyright"]) . ".</p>";
+    }
+
+    $stmt2->close();
+    $conn->close();
+    ?>
+
+</body>
+</html>
+>
+
+Save and exit the file.
+
+The last step is testing and viewing our file!!
+
+Test the file first by using this command:
+If you have any errors, they will show after you have added these commands:
+
+**sudo php -f /var/www/login.php**
+
+**sudo php -f /var/www/html/opac.php**
+
+If you have no errors, amazing!! The very last step is testing your webpage:
+
+Using your VM IP address open a browser, adding the /opac.php at the end of it:
+
+**http://34.60.97.144/opac.php**
+
+*SUCCESS!!*
+
+
 
 
 
