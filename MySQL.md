@@ -90,3 +90,57 @@ GRANT OPTION
 
 Now exit out of mysql again using the **\q** command.
 
+Now we need to update the bash shell. To open the bash shell use your text editor and the following command:
+
+**edit ~/.bashrc**
+
+Scroll down and add the following language at the bottom of the file"
+
+"export MYSQL_PS1="[\d]> "
+
+Then save and exit the file.
+
+Now its time to create your *database*!!
+
+Use the following command to login to mysql-- *remember!!* when typing in your password it will appear like it is not working. It is! Type in your password and hit enter and you will get logged in.
+
+**mysql -u USERNAME -p**
+
+Then to bring you the opac database type in these commands, this will pull up :
+
+**show databases;**
+**use opacdb;**
+
+Use the following command to create the table for our book database:
+It is important to ensure that all the formatting matches below, or the command will not work. This command creates a table with author, title, and copyright year, with an ID auto-created with each new entry, and that ID is the primary key.
+
+**create table books (
+        id int unsigned not null auto_increment,
+        author varchar(150) not null,
+        title varchar(150) not null,
+        copyright year not null,
+        primary key (id)
+);**
+
+To confirm the table was created correctly use the following command:
+
+**show tables;**
+**describe books;**
+
+Use the following command to add the author names, book titles, and copyright years to the tables:
+
+**insert into books (author, title, copyright) values
+('Jennifer Egan', 'The Candy House', '2022'),
+('Imbolo Mbue', 'How Beautiful We Were', '2021'),
+('Lydia Millet', 'A Children\'s Bible', '2020'),
+('Julia Phillips', 'Disappearing Earth', '2019');**
+
+You can test to confirm the books have been added by using the following command:
+
+**select * from books;**
+
+
+
+
+
+
