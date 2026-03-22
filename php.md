@@ -37,17 +37,20 @@ We must verify the two software programs are running together by creating a smal
 
 *Create the following file in your editor*
 
+>
 <?php
 phpinfo();
 ?>
+>
 
-Then save and exit. Using my http://XXX/info.php website, bring up the file you created and verified it works.
+Then save and exit. Using my http://IPADDRESS/info.php website, bring up the file you created and verified it works.
 
-After verfiying, *ensure you delete* using the following command, this file has important private information about your VM:
+After verfiying, *ensure you delete this file* using the following command, this file has important private information about your VM:
+
 **sudo rm /var/www/html/info.php**
 
 
-Troubleshooting: After deleting the file, I backed out too far of my VM, so i needed to re-add my document root.
+Troubleshooting: After deleting the file, I backed out too far of my VM, so I needed to re-add my document root.
 I could tell I did this when i typed in /var/www/html/ and I kept getting error messages. I needed to be in cd /var/www/html/ in order to pull the directory next.
 
 I saved a copy of the file dir.conf so that if it got messed up, I could reload it.
@@ -56,25 +59,32 @@ Then I went into the file and put the index.php file before the index.html file 
 We want the index.php file to pull up first. In order to do this, we must manually change the order of the files.
 
 1. Verify the documents name and location using the following command:
+   
    **cd /etc/apache2/mods-available/**
    
-2. Save a copy of the file dir.conf by using the following command:
+3. Save a copy of the file dir.conf by using the following command:
+   
    **sudo cp dir.conf dir.conf.bak**
 
-3. Using your editor, open the file:
+5. Using your editor, open the file:
+   
    **sudo edit dir.conf**
 
    -insert index.php first in the line of files, save and exit
 
    Use the following command to check the configuration:
+   
    **sudo systemctl reload apache2**
+   
    **systemctl status apache2**
 
    *Lastly, we want to create a PHP page*
+   
    Use the following commands to pull up a test editor file, this will automatically name your new file index.php:
 
    **cd /var/www/html/**
-   **Sudo nano index.php**
+   
+   **Sudo edit index.php**
 
    Add the following code to the file:
 
@@ -136,9 +146,14 @@ We want the index.php file to pull up first. In order to do this, we must manual
 >
 
 Save and exit the file.
-The final step is to verify it works, do this by pulling your IP address website : http://IP.address/
+
+The final step is to verify it works, do this by pulling your IP address website:
+
+*http://IP.address/*
+
+Note: you do not need to add the index.php at the end of the site, as it is currently marked first on the list for Apache to show.
    
-   
+If your PHP file is showing *success!!*
 
 
 
