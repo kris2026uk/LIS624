@@ -83,8 +83,17 @@ I created this site using the Apache HTTP server.</p>
 </html>
 >
 
-Save and exit your text editor and then test to see if your site populates, by putting your external IP address in your browser and hitting search.
-The in
+Save and exit your text editor and then test to see if your site populates, by putting your  (public) IP address in your browser and hitting search.
+
+*http://IPADDRESS/index.html*
+
+If your page comes as your first website and what you added above, *success!!*
+
+You can still view the original file by using the following web address:
+
+*http://IPADDRESS/index.original.html*
+
+
 
 Check to see your site 
 
