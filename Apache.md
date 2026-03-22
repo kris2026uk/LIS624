@@ -25,14 +25,14 @@ and download the correct software for Apache.
 - **sudo apt install apache2** 
 
 3. Once you have downloaded the software, you must check to ensure that it is active and enabled correctly on your machine.
-This means that it was downloaded correctly, is working, and will automatically start when rebooted. Use the following command to confirm this:
+This means that it was downloaded correctly, is working, and will automatically start when rebooted. Use the following command to confirm this, it should show ACTIVE and LOADED:
 
 - **systemctl status apache2**
 
 Next, you will need to download a command line browser using one of the following:
 
-- sudo apt install w3m
-- sudo apt install elinks
+-**sudo apt install w3m**
+**sudo apt install elinks**
 
 This will ensure you can check your websites by adding the address to point to a local machine. This can also be done by using the virtual machines IP address. 
 
@@ -44,10 +44,48 @@ You can also view your websites by using your default web page from your virtual
 
 -http://IP-ADDRESS
 
+If these commands work, you should see text on your webpage with the following:
+Apache2 Ubuntu Default Page
+It Works!
+
+To exit w3m use the following to  exit:
+
+**q** then **y** to exit.
+
 **Next** *Its time to create your website*
 
+Our first step is to configure our file in our root directory. Updating the document root is important  because it is what provides the access from the web to our files. 
+  We are going to rename the index.html file to create a backup, if we do not do that and make a mistake, we don't want to delete important *necessary* files.
 
-  
+Use the following commands to rename our index.html file:
 
+**cd /var/www/html/**
+
+**sudo mv index.html index.original.html**
+
+**sudo edit index.html**
+
+While in the text editor, add the following information, or update it to be your own content for your first website:
+
+>
+<html>
+<head>
+<title>My first web page using Apache</title>
+</head>
+<body>
+
+<h1>Welcome</h1>
+
+<p>Welcome to my web site.
+I created this site using the Apache HTTP server.</p>
+
+</body>
+</html>
+>
+
+Save and exit your text editor and then test to see if your site populates, by putting your external IP address in your browser and hitting search.
+The in
+
+Check to see your site 
 
 
