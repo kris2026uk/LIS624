@@ -1,6 +1,6 @@
  #Instructions for Downloading and using MySQL
 
-MySQL is an integral part of the LAMP stack. It is neccessary for....
+MySQL is an integral part of the LAMP stack. MySQL is where the relational database is created and works together with Apache web server and PHP programming language to enable the database be available on the web.
 
 The first step is to ensure that the current software is updated, so use the following commands to check for updates and update if neccessary:
 
@@ -21,7 +21,7 @@ Then Check the status of the program to ensure that is installed and running by 
 
 **systemctl status mysql** 
 
-This is an important step! Use the command below to ensure that the Mysql program is secure
+This is an important step! Use the command below to ensure that the Mysql program is secure:
 
 **sudo mysql_secure_installation**
 
@@ -42,6 +42,7 @@ Next login to mySQL! Using this command:
 When your server shows (mysql>) on your line, you are no longer in your home directory, but you are now in the MySQL server.
 
 To see the databases use the following command:
+
 **show databases**
 
 There should be the following databases listed:
@@ -60,6 +61,7 @@ To exit MySQL you use the following command to bring you back to your home direc
 **\q** 
 
 We want to create a user separate from the main root user, so we need to close mysql with \q and then from our home directory use this command again to log back in:
+
 **sudo mysql -u root**
 
 Then use the following command to create the new username and password (you choose the username and password to enter here):
@@ -74,7 +76,9 @@ After creating this new user, we need to create a new database for it and give i
 You do so with the following commands within mysql:
 
 **create database opacdb default character set utf8mb4 collate utf8mb4_0900_ai_ci**
+
 **show databases**
+
 **grant all privileges on opacdb.* to 'USERNAME'@'localhost'**
 
 These will allow for our user 'USERNAME' to have all privileges in the mysql database when logging in from our home directory. 
@@ -210,6 +214,7 @@ We now have to create a login in our root directory, so that our PHP can coonnec
 
 These steps only created the file, we must now add our login and database to it so that it will store and use the information. Add the following to the file:
 
+>
 <?php // login.php
 
 $db_hostname = "localhost";
@@ -222,6 +227,7 @@ $db_password = "PASSWORD";
 
 ?>
 
+>
 
 Now we create a PHP file for our website. Use the following commands to create the files:
 
