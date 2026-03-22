@@ -139,8 +139,50 @@ You can test to confirm the books have been added by using the following command
 
 **select * from books;**
 
+You can practice making changes to your database by using the following commands:
 
+**select author from books;**
 
+**select copyright from books;**
+
+**select author, title from books;**
+
+**select author from books where author like '%millet%';**
+
+**select title from books where author like '%mbue%';**
+
+**select author, title from books where title not like '%e';**
+
+**select * from books;**
+
+**alter table books add publisher varchar(75) after title;**
+
+**describe books;**
+
+**update books set publisher='Simon & Schuster' where id='1';**
+
+**update books set publisher='Penguin Random House' where id='2';**
+
+**update books set publisher='W. W. Norton & Company' where id='3';**
+
+**update books set publisher='Knopf' where id='4';**
+
+**select * from books;**
+
+**delete from books where author='Julia Phillips';**
+
+**insert into books
+       (author, title, publisher, copyright) values
+       ('Emma Donoghue', 'Room', 'Little, Brown & Company', '2010'),
+       ('Zadie Smith', 'White Teeth', 'Hamish Hamilton', '2000');**
+       
+**select * from books;**
+
+**select author, publisher from books where copyright < '2011';**
+
+**select author from books order by copyright;**
+
+**\q**
 
 
 
