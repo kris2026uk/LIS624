@@ -5,6 +5,7 @@ MySQL is an integral part of the LAMP stack. MySQL is where the relational datab
 The first step is to ensure that the current software is updated, so use the following commands to check for updates and update if neccessary:
 
 **sudo apt update**
+
 **sudo apt upgrade**
 
  For downloading the METAVERSION use the following command:
@@ -58,6 +59,7 @@ There should be the following databases listed:
 4 rows in set (0.01 sec)
 
 To exit MySQL you use the following command to bring you back to your home directory:
+
 **\q** 
 
 We want to create a user separate from the main root user, so we need to close mysql with \q and then from our home directory use this command again to log back in:
@@ -113,6 +115,7 @@ Use the following command to login to mysql-- *remember!!* when typing in your p
 Then to bring you the opac database type in these commands, this will pull up :
 
 **show databases;**
+
 **use opacdb;**
 
 Use the following command to create the table for our book database:
@@ -129,15 +132,17 @@ It is important to ensure that all the formatting matches below, or the command 
 To confirm the table was created correctly use the following command:
 
 **show tables;**
+
 **describe books;**
 
 Use the following command to add the author names, book titles, and copyright years to the tables:
-
+>
 **insert into books (author, title, copyright) values
 ('Jennifer Egan', 'The Candy House', '2022'),
 ('Imbolo Mbue', 'How Beautiful We Were', '2021'),
 ('Lydia Millet', 'A Children\'s Bible', '2020'),
 ('Julia Phillips', 'Disappearing Earth', '2019');**
+>
 
 You can test to confirm the books have been added by using the following command:
 
