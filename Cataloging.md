@@ -1,7 +1,7 @@
 # Cataloging
 
 
-## The next step in creating our ILS (integrated library system) is creating a cataloging module.
+## This is the next step in creating our ILS (integrated library system) is creating a cataloging module.
 
 This will give backend users such as catalogers and administrators the ability to update the catalog without using mySQL coding to add each record.
 
