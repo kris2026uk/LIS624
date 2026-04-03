@@ -4,9 +4,9 @@
 
 An OPAC uses the LAMP technologies to create an accessible database that can be searched.
 
-By using these instructions along with the LAMP instructions, one can create their own online accessible database. This can be very useful for a library that may not have the resources available to house their own servers and in-house database.
+By using these instructions along with the LAMP instructions, one can create their own online accessible database. This can be very useful for a library that may not have the resources available to house their own servers and in-house database. Our OPAC enables users to search for and pull information from our database, without being logged into our VM. 
 
-Our OPAC is going to be created using a MySQL database along with creating an HTML website and using PHP as our search page.
+Our OPAC is going to be created using a MySQL database along with creating an HTML website and using PHP as our search page. The database stores the records we add in a systematic and searchable way, so that the information can be retrieved, either my using mySQL coding in our VM OR through our web-based OPAC.  
 
 You can view the MySQL github file I created to view the initial download and setting up of our OPAC database "books". These instructions map out how to download MySQL and create a new database
 
@@ -201,6 +201,8 @@ You will want to type in the following code into this file so that our search si
 ## **Lastly! Test your work by doing a search!**
 
 http://IPADDRESS/mylibrary.html
+
+
 
 If you are able to do a search, and bring up search results, you have successfully created your first OPAC!
 
