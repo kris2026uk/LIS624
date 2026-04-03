@@ -47,6 +47,7 @@ Use the following commands to create a new file in the VM:
 Type the following HTML code into your text editor and once your done save and exit. The document below explains what our OPAC is, how one can search it, and the form for it to be created on the website. This file will link to our next search.php file to enable us to search our database!
 
 >
+>
 <!DOCTYPE html>
 <html>
     <head>
@@ -108,7 +109,7 @@ Type the following HTML code into your text editor and once your done save and e
 
 2. The next step is to create our search.php file.
 
-TO create a new file use the following commands:
+To create a new file use the following commands:
 
 **cd var/www/html**
 
@@ -116,6 +117,7 @@ TO create a new file use the following commands:
 
 You will want to type in the following code into this file so that our search site will connect with our database and pull our search results. **NOTE** The file must be typed correctly to work. If not, it will not connect and will not work.
 
+>
 >
 <!DOCTYPE html>
 <html lang="en">
