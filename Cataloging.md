@@ -119,5 +119,90 @@ $conn->close();
 </html>
 >
 
+
 We want to ensure that not just anybody can add information into our OPAC, so we need to make 
-it secure.
+it secure. We do this by creating a username and password. NOTE when adding the password, the cursor will not move, but your input is being added.
+
+sudo htpasswd -c /etc/apache2/.htpasswd username
+
+
+We want to update our Apache configuration file to ensure that it requests our username and password before allowing anyone to add anythign to our catalog.
+
+We edit this file through our text editor.
+
+sudo edit /etc/apache2/apache2.conf
+
+Add the following to the current file underneath the existing "Directory/var/www/" section
+
+>
+<Directory /var/www/html/cataloging/>
+  Options Indexes FollowSymLinks
+  AllowOverride AuthConfig
+  Require all granted
+</Directory>
+>
+
+Now we want to change back to our cataloging directory using the following commands and create a new file called .htaccess :
+
+cd /var/www/html/cataloging
+
+sudo edit .htaccess
+
+Type the following information into our file:
+>
+AuthType Basic
+AuthName "Authorization Required"
+AuthUserFile /etc/apache2/.htpasswd
+Require valid-user
+>
+
+ *Save and exit*
+ 
+Next we verify our configuration file works by using the following command:
+
+sudo apachect1 configtest
+
+If we get a message that says Syntax OK  then we must restart Apache2 to ensure everything we have created is working together. Use the following commands to restart:
+
+sudo systemctl restart apache2
+
+sudo systemctl status apache2
+
+The last thing we want to do before starting to use our catalog form is to limit file permissions and ownership to our user account. This is to ensure that only those who need access have access.
+
+First, bring up the current permissions by using the following commands:
+
+grep "www-data" /etc/passwd
+
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+
+Next we will use this command to change ownership:
+
+sudo chown :www-data /var/www/html
+
+The following command will set the setgid bit to /var/www/html.  This will mean that any file and directory created within /var/www/html will inherit ownership of the parent directory (in this case www-data)
+
+ sudo find /var/www/html -type d -exec chmod g+s {} +
+
+
+YAY! Time to catalog! 
+
+Using our IP address, we can now open our catalog using this web address:
+
+http://IP_ADDRESS/cataloging/index.html
+
+ or
+ our PHP page:
+ 
+ http://IP_ADDRESS/cataloging/insert.php
+
+You should be promted to add your username and password. 
+You should get an error message if you add the wrong username or password.
+
+IF it does not work, revisit the section on adding the username and password and restarting Apache2.
+
+Get Cataloging!
+
+
+
+
