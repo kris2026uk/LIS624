@@ -1,25 +1,25 @@
-#Cataloging
+# Cataloging
 
 
-##The next step in creating our ILS (integrated library system) is creating a cataloging module.
+## The next step in creating our ILS (integrated library system) is creating a cataloging module.
 
 This will give backend users such as catalogers and administrators the ability to update the catalog without using mySQL coding to add each record.
 
 Creating this cataloging module essentially creates a form for users (catalogers) to fill out,
 rather than typing in code into a database. This reduces the potential for coding errors and creates a more streamlined, faster way to add records.
 
-The first thing we have to do is create a new directory in our VM.
+1. The first thing we have to do is create a new directory in our VM.
 Use the following commands to do this:
 
-'cd /var/www/html'
+**cd /var/www/html**
 
-sudo mkdir cataloging
+**sudo mkdir cataloging**
 
-Next we use our text editor to create our index.html file within our new directory:
+2. Second, we use our text editor to create our index.html file within our new directory:
 
-cd cataloging
+**cd cataloging**
 
-sudo edit index.html
+**sudo edit index.html**
 
 >
 <!DOCTYPE html>
@@ -55,10 +55,9 @@ sudo edit index.html
 Save and exit
 
 
-Next we needto create another PHP file, similar to what we did with our OPAC, but this form will add 
-information into our OPAC.
+3. Third, 3e need to create another PHP file, similar to what we did with our OPAC, but this form will add information into our OPAC, rather than pull it out.
 
-sudo edit index.html
+**sudo edit index.html**
 
 >
 <!DOCTYPE html>
@@ -122,18 +121,17 @@ $conn->close();
 </html>
 >
 
+# **Security**
 
 We want to ensure that not just anybody can add information into our OPAC, so we need to make 
-it secure. We do this by creating a username and password. NOTE when adding the password, the cursor will not move, but your input is being added.
+it secure. We do this by creating a username and password. *NOTE* when adding the password, the cursor will not move, but your input is being added.
 
-sudo htpasswd -c /etc/apache2/.htpasswd username
+**sudo htpasswd -c /etc/apache2/.htpasswd username**
 
 
-We want to update our Apache configuration file to ensure that it requests our username and password before allowing anyone to add anythign to our catalog.
+We want to update our Apache configuration file to ensure that it requests our username and password before allowing anyone to add anything to our catalog. We edit this file through our text editor.
 
-We edit this file through our text editor.
-
-sudo edit /etc/apache2/apache2.conf
+**sudo edit /etc/apache2/apache2.conf**
 
 Add the following to the current file underneath the existing "Directory/var/www/" section
 
@@ -147,11 +145,12 @@ Add the following to the current file underneath the existing "Directory/var/www
 
 Now we want to change back to our cataloging directory using the following commands and create a new file called .htaccess :
 
-cd /var/www/html/cataloging
+**cd /var/www/html/cataloging**
 
-sudo edit .htaccess
+**sudo edit .htaccess**
 
 Type the following information into our file:
+
 >
 AuthType Basic
 AuthName "Authorization Required"
@@ -161,41 +160,40 @@ Require valid-user
 
  *Save and exit*
  
-Next we verify our configuration file works by using the following command:
+Next, we verify our configuration file works by using the following command:
 
-sudo apachect1 configtest
+**sudo apachect1 configtest**
 
 If we get a message that says Syntax OK  then we must restart Apache2 to ensure everything we have created is working together. Use the following commands to restart:
 
-sudo systemctl restart apache2
+**sudo systemctl restart apache2**
 
-sudo systemctl status apache2
+**sudo systemctl status apache2**
 
 The last thing we want to do before starting to use our catalog form is to limit file permissions and ownership to our user account. This is to ensure that only those who need access have access.
 
-First, bring up the current permissions by using the following commands:
+1. First, bring up the current permissions by using the following commands:
 
-grep "www-data" /etc/passwd
+**grep "www-data" /etc/passwd**
 
-www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+**www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin**
 
-Next we will use this command to change ownership:
+2. Second, we will use this command to change ownership:
 
-sudo chown :www-data /var/www/html
+**sudo chown :www-data /var/www/html**
 
 The following command will set the setgid bit to /var/www/html.  This will mean that any file and directory created within /var/www/html will inherit ownership of the parent directory (in this case www-data)
 
- sudo find /var/www/html -type d -exec chmod g+s {} +
+**sudo find /var/www/html -type d -exec chmod g+s {} +**
 
 
-YAY! Time to catalog! 
+## YAY! Time to catalog! 
 
 Using our IP address, we can now open our catalog using this web address:
 
 http://IP_ADDRESS/cataloging/index.html
 
- or
- our PHP page:
+ or our PHP page:
  
  http://IP_ADDRESS/cataloging/insert.php
 
@@ -204,7 +202,7 @@ You should get an error message if you add the wrong username or password.
 
 IF it does not work, revisit the section on adding the username and password and restarting Apache2.
 
-Get Cataloging!
+**Get Cataloging!**
 
 
 
