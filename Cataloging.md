@@ -1,14 +1,17 @@
-The next step in creating our ILS (integrated library system) is creating a cataloging module.
-This will give backend users such as catalogers and administrators the ability to update the catalog
-without using mySQL coding to add each record.
+#Cataloging
+
+
+##The next step in creating our ILS (integrated library system) is creating a cataloging module.
+
+This will give backend users such as catalogers and administrators the ability to update the catalog without using mySQL coding to add each record.
+
 Creating this cataloging module essentially creates a form for users (catalogers) to fill out,
-rather than typing in code into a database. This reduces the potential for coding errors and creates
-a more streamlined, faster way to add records.
+rather than typing in code into a database. This reduces the potential for coding errors and creates a more streamlined, faster way to add records.
 
 The first thing we have to do is create a new directory in our VM.
 Use the following commands to do this:
 
-cd /var/www/html
+'cd /var/www/html'
 
 sudo mkdir cataloging
 
