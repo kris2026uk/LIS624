@@ -1,8 +1,10 @@
-These are instructions for how to create ones own OPAC. An OPAC is an "Online Public Access Catalog".
+#OPAC
+
+## These are instructions for how to create ones own OPAC. An OPAC is an "Online Public Access Catalog".
+
 An OPAC uses the LAMP technologies to create an accessible database that can be searched.
 
-By using these instructions along with the LAMP instructions, one can create their own online accessible database. This can be very 
-useful for a library that may not have the resources available to house their own servers and in-house database.
+By using these instructions along with the LAMP instructions, one can create their own online accessible database. This can be very useful for a library that may not have the resources available to house their own servers and in-house database.
 
 Our OPAC is going to be created using a MySQL database along with creating an HTML website and using PHP as our search page.
 
@@ -12,7 +14,7 @@ There are many ways to make changes to our current database within MySQL. Databa
 
 Learning MySQL will only come with practice. 
 
-The first thing we want to do is make an update to our database file.
+1. The first thing we want to do is make an update to our database file.
 
 Within our mySQL we want change our database to have a different format of copyright date. 
 
@@ -30,15 +32,17 @@ The above commands added a new column to our table, then made sure it was the co
 We can make other additions and changes through mysql to our database. 
 You will want to exit out of MySQL before continuing on with our OPAC instructions.
 
-Now! We want to make our database available and searchable on the web.
+Now that our database is updated! 
 
-The first thing we do is create an HTML page.
+2. Second, we want to make our database available and searchable on the web.
+
+The first thing we do to do this is create an HTML page.
 
 Use the following commands to create a new file in the VM:
 
-cd var/www/html
+**cd var/www/html**
 
-sudo edit mylibrary.html
+**sudo edit mylibrary.html**
 
 Type the following HTML code into your text editor and once your done save and exit. The document below explains what our OPAC is, how one can search it, and the form for it to be created on the website. This file will link to our next search.php file to enable us to search our database!
 
@@ -102,13 +106,13 @@ Type the following HTML code into your text editor and once your done save and e
 >
 
 
-The next step is to create our serach.php file.
+2. The next step is to create our search.php file.
 
 TO create a new file use the following commands:
 
-cd var/www/html
+**cd var/www/html**
 
-sudo edit search.php
+**sudo edit search.php**
 
 You will want to type in the following code into this file so that our search site will connect with our database and pull our search results. **NOTE** The file must be typed correctly to work. If not, it will not connect and will not work.
 
@@ -195,7 +199,7 @@ You will want to type in the following code into this file so that our search si
 </html>
 >
 
-**Lastly! Test your work by doing a search!**
+## **Lastly! Test your work by doing a search!**
 
 http://IPADDRESS/mylibrary.html
 
