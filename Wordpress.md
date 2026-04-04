@@ -1,3 +1,10 @@
+# Wordpress Installation
+
+## Wordpress software is how we are going to build our website.
+
+Wordpress is used by many current libraries to house their public facing websites. These websites bring many different 
+
+
 The first thing I did prior to starting the installation process was to do any updates to my VM using 
 sudo apt update
 sudo apt upgrade
