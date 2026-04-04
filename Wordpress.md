@@ -2,46 +2,56 @@
 
 ## Wordpress software is how we are going to build our website.
 
-Wordpress is used by many current libraries to house their public facing websites. These websites bring many different 
+Wordpress is used by many current libraries to house their public facing websites. These websites may pull toghether many different resources and links to resources, and make them available from one place.
 
+1. The first thing needing to be done prior to starting the installation process is to do any updates to your VM using the following commands:
 
-The first thing I did prior to starting the installation process was to do any updates to my VM using 
-sudo apt update
-sudo apt upgrade
+**sudo apt update**
 
-Then i checked to see how much space I have left on my server, since we set them up for 10 G- mine said I was using 90%, so I did 
+**sudo apt upgrade**
 
- sudo apt autoremove - this freed up some space on my server, I then had 88%.
+Then it is important to check to see how much space is left on the VM server, since it was set up for 10 G- (mine said I was using 90%). To remove any extra files taking up space on your VM server so run the following commands:
 
- next I downloaded the following PHP modules that will be essential to our wordpress
+ **sudo apt autoremove** - (this did free up some space on my server, I then had 88%.)
+
+2. Secondly, download the following PHP modules that will be essential to the Wordpress site:
  
- sudo apt install php-curl php-xml php-imagick php-mbstring php-zip php-intl
- after these were installed, I needed to update mysql and apache2
+ **sudo apt install php-curl php-xml php-imagick php-mbstring php-zip php-intl**
  
- sudo systemctl restart apache2
- sudo systemctl restart mysql
+ After these are installed, it is important to restart mysql and apache2 use these commands:
+ 
+ **sudo systemctl restart apache2**
+ 
+**sudo systemctl restart mysql**
 
-Now its time to download wordpress!
-First we need to change directories :
+Now that the VM is updated, its time to download **Wordpress**!
 
-cd /var/www/html
+1. First we need to change directories:
 
-Now we use the following to download the latest version of wordpress using this command: 
+**cd /var/www/html**
 
-sudo wget https://wordpress.org/latest.zip
+ We have never installed unzip on this VM so first we need to use this command to install it:
+ We will need this to be able to install Wordpress.
+ 
+ **sudo apt install unzip**
 
- We have never installed unzip on this vm so first we need to use this command to install it:
- sudo apt install unzip
- now you can unzip the wordpress file with this command:
-sudo unzip latest.zip
+2. Now, use the following to download the latest version of Wordpress using this command:
+   
+**sudo wget https://wordpress.org/latest.zip**
 
-after unziping the file, we can delete the latest.zip file -- i need to do that to clear up any space I can right now.
-using this command:
+Now unzip the Wordpress file with this command:
 
-Now, we want to set up our username and password for wordpress. We do this through mysql and the root user 
-sudo mysql -u root
+**sudo unzip latest.zip**
 
-create user 'wordpress'@'localhost' identified by 'XXXXXXXXX';
+After unziping the file, delete the latest.zip file -- (I need to do that to clear up any space I can right now.) using this command:
+
+ **sudo rm latest.zip**
+ 
+Now that we have the software downloaded, we want to set up our username and password for Wordpress. **This is really important!** In order to keep our Wordpress site safe, you need to create a strong username and password. We do this through mysql and the root user:
+
+**sudo mysql -u root**
+
+**create user 'wordpress'@'localhost' identified by 'XXXXXXXXX';**
 
 Create a database:
 
@@ -54,7 +64,7 @@ logout
 
 
 
-sudo rm latest.zip
+
 
 Now we want to make changes to our configuration file, first we need to be in our new wordpress directory
 
