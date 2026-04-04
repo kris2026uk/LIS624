@@ -89,7 +89,7 @@ define('FS_METHOD','direct');
 
 Then Save and Exit.
 
-Now bring up wordpress site by using the hhttp:IP ADDRESS/wordpress
+Now bring up wordpress site by using the http:IP ADDRESS/wordpress
 
 **Success!**
 
