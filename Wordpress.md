@@ -67,22 +67,30 @@ Confirm the database was created:
 then logout
 4. **\q**
 
-Now, we want to make changes to our configuration file, first we need to be in our new wordpress directory
+The last step is making changes to our configuration file, first we need to be in our new wordpress directory. This will add our created database, username and password to the file so that we can run it.
 
-cd wordpress/
-ls
+Go to our wordpress directory:
 
-cd /var/www/html/wordpress
+**cd wordpress/**
 
-First we copy and save our file as a different name:
-sudo cp wp-config-sample.php wp-config.php
+**cd /var/www/html/wordpress**
 
-sudo edit wp-config.php
-Within this file we need to update the database, username and password. 
+1. First copy and save the file as a different name:
+   
+**sudo cp wp-config-sample.php wp-config.php**
 
-We also need to add the following to the bottom of the page:
+**sudo edit wp-config.php** 
+
+Within this file we need to update the values for **database, username and password** with what we created in the prior step. 
+
+We also need to add the following code to the bottom of the page:
 
 define('FS_METHOD','direct');
 
-Now I brought up my wordpress site by using my IP ADDRESS/wordpress
-When this webaddress comes up, you need to choose a language, a name, password and add your email to login.
+Then Save and Exit.
+
+Now bring up wordpress site by using the hhttp:IP ADDRESS/wordpress
+
+**Success!**
+
+When this webaddress comes up, you need to choose a language, a name, password and add your email to login. Once you do that you now have your Wordpress site!
