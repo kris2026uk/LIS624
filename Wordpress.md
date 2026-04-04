@@ -53,20 +53,21 @@ Now that we have the software downloaded, we want to set up our username and pas
 
 **create user 'wordpress'@'localhost' identified by 'XXXXXXXXX';**
 
-Create a database:
+**Now create the database!**
 
-create database wordpress;
-grant all privileges on wordpress.* to 'wordpress'@'localhost';
-confirm your database was created
-show databases;
-logout
-\q
+Create the database and grant all the privileges to the user:
 
+1. **create database wordpress;**
+2. **grant all privileges on wordpress.* to 'wordpress'@'localhost';**
 
+Confirm the database was created:
 
+3. **show databases;**
 
+then logout
+4. **\q**
 
-Now we want to make changes to our configuration file, first we need to be in our new wordpress directory
+Now, we want to make changes to our configuration file, first we need to be in our new wordpress directory
 
 cd wordpress/
 ls
