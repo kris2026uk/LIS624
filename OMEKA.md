@@ -21,8 +21,18 @@ sudo a2enmod rewrite
 
 sudo systemctl restart apache2
 
+The first step is creating a user and database on our system for Omeka, replace omeka and xx with a username and password-
+create user 'OMEKA'@'localhost' identified by 'XXXXXXXXX';
+create database OMEKA;
+grant all privileges on OMEKA.* to 'wordpress'@'localhost';
+show databases;
+\q
 
 Now! We need to download Omeka--
 
+this is done using these commands:
+
+cd /var/www/html
+sudo wget https://github.com/omeka/Omeka/releases/download/v3.2/omeka-3.2.zip  -- this link is found by going to the download page and hovering over the download button, then right click and copy the link
 cd /var/www/html
 sudo wget https://omeka.org/classic/download/
