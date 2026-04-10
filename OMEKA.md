@@ -24,7 +24,7 @@ sudo systemctl restart apache2
 The first step is creating a user and database on our system for Omeka, replace omeka and xx with a username and password-
 create user 'OMEKA'@'localhost' identified by 'XXXXXXXXX';
 create database OMEKA;
-grant all privileges on OMEKA.* to 'wordpress'@'localhost';
+grant all privileges on OMEKA.* to 'OMEKA'@'localhost';
 show databases;
 \q
 
@@ -34,5 +34,39 @@ this is done using these commands:
 
 cd /var/www/html
 sudo wget https://github.com/omeka/Omeka/releases/download/v3.2/omeka-3.2.zip  -- this link is found by going to the download page and hovering over the download button, then right click and copy the link
-cd /var/www/html
-sudo wget https://omeka.org/classic/download/
+
+Then you want to unzip the file by using this command:
+sudo unzip omeka-3.2.zip
+
+You can now check your VM to confirm it worked.
+The file should show up with both a zipped version and an unzipped version.
+
+Now we want to save the file with a new name, so that we don't have to remember the version number:
+sudo mv omeka-3.2/ omeka
+
+ll 
+to confirm the change was made.
+
+now we want to add our information to the Omeka file 
+sudo edit db.ini
+
+Host: localhost 
+Username: (what you chose for your username above)
+Password: (your password above)
+Database Name : (above)
+
+We also need to add the database information to our .hdaccess file
+cd
+sudo edit .hdaccess
+
+add:
+<Directory /var/www/html/omeka/>
+  Options Indexes FollowSymLinks
+  AllowOverride All
+  Require all granted
+</Directory>
+
+now restart apache2 and mysql
+
+you should now be able to pull up the OMEKA login page with your link http://XXXX/omeka/ 
+from there finish the set up -create a new login and password for OMEKA site
