@@ -8,25 +8,25 @@ We need to download OMEKA to continuing to create our library site. It is import
 1. First, we need to check the versions of what we have already installed using these commands to ensure they match the requirements for OMEKA, these are listed on their website.
 
 `php --version`
+
 `mysql --version`
 
 
-We also need to confirm there are two php extensions that are required for the OMEKA, (as it states on its system_requirements site) 
+2. Second, we also need to confirm there are two php extensions that are required for the OMEKA, (as it states on its system_requirements site) 
 mysqli and exif extensions  - to see the php extentions use this command and verify that what is needed is on the list.
 
-'''
-php -m
-'''
+`php -m`
 
-The last requirement is ImageMagick, which we have not yet downloaded, use this command to get this software:
 
-'''
-sudo apt install imagemagick
+3. Third, we have an additional software requirement, ImageMagick, which we have not yet downloaded, use this command to get this software:
 
-sudo a2enmod rewrite
+`sudo apt install imagemagick`
 
-sudo systemctl restart apache2
-'''
+`sudo a2enmod rewrite`
+
+`sudo systemctl restart apache2`
+
+## Omeka Download
 
 The first step is creating a user and database on our system for Omeka, replace omeka and xx with a username and password-
 create user 'OMEKA'@'localhost' identified by 'XXXXXXXXX';
