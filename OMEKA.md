@@ -43,14 +43,14 @@ This code is entered within mysql, ensure you replace omeka with your username a
 
 2. Second, we need to download Omeka using the following commands:
 
-`cd /var/www/html`
-`sudo wget https://github.com/omeka/Omeka/releases/download/v3.2/omeka-3.2.zip`
+`cd /var/www/html`  
+`sudo wget https://github.com/omeka/Omeka/releases/download/v3.2/omeka-3.2.zip`  
 
 -- this link is found by going to the download page and hovering over the download button, then right click and copy the link
 
 Then you want to unzip the file by using this command:
 
-`sudo unzip omeka-3.2.zip`
+`sudo unzip omeka-3.2.zip`  
 
 You can now check your VM to confirm it worked:
 
@@ -59,31 +59,39 @@ You can now check your VM to confirm it worked:
 The file should show up with both a zipped version and an unzipped version.
 
 Now we want to save the file with a new name, so that we don't have to remember the version number:
-sudo mv omeka-3.2/ omeka
 
-ll 
-to confirm the change was made.
+`sudo mv omeka-3.2/ omeka`
 
-now we want to add our information to the Omeka file 
-sudo edit db.ini
+`ll` -- Use this command to check to see if the name was changed.
 
-Host: localhost 
-Username: (what you chose for your username above)
-Password: (your password above)
-Database Name : (above)
+3. Third, for OMEKA to connect correctly to our VM, we want to add our information to the Omeka file"
+   
+`sudo edit db.ini`
 
-We also need to add the database information to our .hdaccess file
-cd
-sudo edit .hdaccess
+-Host: localhost
+-Username: (what you chose for your username above)
+-Password: (your password above)
+-Database Name : (above)
 
-add:
-<Directory /var/www/html/omeka/>
-  Options Indexes FollowSymLinks
-  AllowOverride All
-  Require all granted
-</Directory>
+4. Fourth, we also need to add the database information to our .hdaccess file:
 
-now restart apache2 and mysql
+`cd`  
+`sudo edit .hdaccess`
 
-you should now be able to pull up the OMEKA login page with your link http://XXXX/omeka/ 
-from there finish the set up -create a new login and password for OMEKA site
+add:  
+> <Directory /var/www/html/omeka/>
+>  Options Indexes FollowSymLinks
+>  AllowOverride All
+>  Require all granted
+> </Directory>
+
+Now restart apache2 and mysql:
+
+`sudo systemctl apache2 restart`  
+`sudo systemctl mysql restart`
+
+You should now be able to pull up the OMEKA login page with your link http://IPADDRESS/omeka/  
+
+From there finish the set up by creating a new login and password for OMEKA site (not the same for what you put in the VM).
+
+**SUCCESS!** **You have download and set up Omeka**
