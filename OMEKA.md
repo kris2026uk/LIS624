@@ -80,12 +80,11 @@ Now we want to save the file with a new name, so that we don't have to remember 
 
 add:  
 
-> <Directory /var/www/html/omeka/>  
+<Directory /var/www/html/omeka/>  
   Options Indexes FollowSymLinks
   AllowOverride All  
   Require all granted  
-  </Directory>
->
+  </Directory>  
 
 Now restart apache2 and mysql:
 
