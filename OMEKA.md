@@ -18,7 +18,7 @@ mysqli and exif extensions  - to see the php extentions use this command and ver
 `php -m`
 
 
-3. Third, we have an additional software requirement, ImageMagick, which we have not yet downloaded, use this command to get this software:
+3. Third, we have an additional software requirement, ImageMagick, which we have not yet downloaded, use these commands to download and install this software:
 
 `sudo apt install imagemagick`
 
@@ -28,24 +28,34 @@ mysqli and exif extensions  - to see the php extentions use this command and ver
 
 ## Omeka Download
 
-The first step is creating a user and database on our system for Omeka, replace omeka and xx with a username and password-
-create user 'OMEKA'@'localhost' identified by 'XXXXXXXXX';
-create database OMEKA;
-grant all privileges on OMEKA.* to 'OMEKA'@'localhost';
-show databases;
-\q
+1. The first step is creating a user and database on our system for Omeka.
+ - This is done within MySQL:
+   
+  `sudo mysql -u root`
 
-Now! We need to download Omeka--
+This code is entered within mysql, ensure you replace omeka with your username and XXX with your password.
 
-this is done using these commands:
+`create user 'OMEKA'@'localhost' identified by 'XXXXXXXXX';`
+`create database OMEKA;`
+`grant all privileges on OMEKA.* to 'OMEKA'@'localhost';`
+`show databases;`
+`\q`
 
-cd /var/www/html
-sudo wget https://github.com/omeka/Omeka/releases/download/v3.2/omeka-3.2.zip  -- this link is found by going to the download page and hovering over the download button, then right click and copy the link
+2. Second, we need to download Omeka using the following commands:
+
+`cd /var/www/html`
+`sudo wget https://github.com/omeka/Omeka/releases/download/v3.2/omeka-3.2.zip`
+
+-- this link is found by going to the download page and hovering over the download button, then right click and copy the link
 
 Then you want to unzip the file by using this command:
-sudo unzip omeka-3.2.zip
 
-You can now check your VM to confirm it worked.
+`sudo unzip omeka-3.2.zip`
+
+You can now check your VM to confirm it worked:
+
+`ll`
+
 The file should show up with both a zipped version and an unzipped version.
 
 Now we want to save the file with a new name, so that we don't have to remember the version number:
