@@ -83,7 +83,7 @@ add:
 >  Options Indexes FollowSymLinks  
 >  AllowOverride All  
 >  Require all granted  
-> </Directory>  
+>  </Directory>  
 >
 Now restart apache2 and mysql:
 
