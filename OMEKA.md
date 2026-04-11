@@ -84,7 +84,7 @@ add:
 >  AllowOverride All  
 >  Require all granted  
 > </Directory>  
-
+>
 Now restart apache2 and mysql:
 
 `sudo systemctl apache2 restart`  
