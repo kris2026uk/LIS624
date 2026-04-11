@@ -7,8 +7,8 @@ We need to download OMEKA to continuing to create our library site. It is import
 
 1. First, we need to check the versions of what we have already installed using these commands to ensure they match the requirements for OMEKA, these are listed on their website.
 
-'php --version'
-'mysql --version'
+`php --version`
+`mysql --version`
 
 
 We also need to confirm there are two php extensions that are required for the OMEKA, (as it states on its system_requirements site) 
