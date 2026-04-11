@@ -79,12 +79,14 @@ Now we want to save the file with a new name, so that we don't have to remember 
 `sudo edit .hdaccess`
 
 add:  
+
 > <Directory /var/www/html/omeka/>  
->  Options Indexes FollowSymLinks  
->  AllowOverride All  
->  Require all granted  
->  </Directory>  
+  Options Indexes FollowSymLinks
+  AllowOverride All  
+  Require all granted  
+  </Directory>
 >
+
 Now restart apache2 and mysql:
 
 `sudo systemctl apache2 restart`  
