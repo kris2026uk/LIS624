@@ -29,17 +29,17 @@ mysqli and exif extensions  - to see the php extentions use this command and ver
 ## Omeka Download
 
 1. The first step is creating a user and database on our system for Omeka.
- - This is done within MySQL:
+ This is done within MySQL:
    
   `sudo mysql -u root`
 
 This code is entered within mysql, ensure you replace omeka with your username and XXX with your password.
 
-`create user 'OMEKA'@'localhost' identified by 'XXXXXXXXX';`
-`create database OMEKA;`
-`grant all privileges on OMEKA.* to 'OMEKA'@'localhost';`
-`show databases;`
-`\q`
+`create user 'OMEKA'@'localhost' identified by 'XXXXXXXXX';`  
+`create database OMEKA;`  
+`grant all privileges on OMEKA.* to 'OMEKA'@'localhost';`  
+`show databases;`  
+`\q`  
 
 2. Second, we need to download Omeka using the following commands:
 
