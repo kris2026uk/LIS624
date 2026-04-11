@@ -1,25 +1,32 @@
+# Omeka Installation
+
+Omeka is used for sharing digital collections and is an important step to building our library.   
 There are a few more steps to creating our library site. 
 
-We need to download OMEKA to continuing to create our library site. It is important to read the websites download instructions and system 
-requirements here before starting the download: https://omeka.org/classic/docs/Installation/System_Requirements/
+We need to download OMEKA to continuing to create our library site. It is important to read the websites download instructions and system requirements here before starting the download:  https://omeka.org/classic/docs/Installation/System_Requirements/
 
-but first, we need to check the versions of what we have already installed. 
-first 
+1. First, we need to check the versions of what we have already installed using these commands to ensure they match the requirements for OMEKA, these are listed on their website.
+'''
 php --version
 mysql --version
+'''
 
 We also need to confirm there are two php extensions that are required for the OMEKA, (as it states on its system_requirements site) 
-mysqli and exif extensions  - to see the php extenstions use this command and verify that what is needed is on the list.
+mysqli and exif extensions  - to see the php extentions use this command and verify that what is needed is on the list.
 
+'''
 php -m
+'''
 
-The last requirement is Image Magick, which we have not yet downloaded, use this command to get this software:
+The last requirement is ImageMagick, which we have not yet downloaded, use this command to get this software:
 
+'''
 sudo apt install imagemagick
 
 sudo a2enmod rewrite
 
 sudo systemctl restart apache2
+'''
 
 The first step is creating a user and database on our system for Omeka, replace omeka and xx with a username and password-
 create user 'OMEKA'@'localhost' identified by 'XXXXXXXXX';
