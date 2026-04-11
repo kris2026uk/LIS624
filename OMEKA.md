@@ -78,7 +78,7 @@ Now we want to save the file with a new name, so that we don't have to remember 
 `cd`  
 `sudo edit .hdaccess`
 
-add:  
+add the following underneath the wordpress section, in the same format:  
 
 `<Directory /var/www/html/omeka/>  
   Options Indexes FollowSymLinks
