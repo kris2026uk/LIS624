@@ -6,7 +6,7 @@ The first step is to create a new VM that will be able to run this program. It r
 
 We need to make it the same system of before, only larger.
 Ubuntu 24.04 lts minimal 86/64 at 20 gb
-
+ENsure Network tags are added!!
 fire wall
 
 updates
