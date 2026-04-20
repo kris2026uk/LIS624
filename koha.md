@@ -54,12 +54,77 @@ We need to create two new firewall rules in order for our staff and patrons can 
 
 ### Open your new VM
 
-Use the tmux command to keep your vm running in case it disconnects.
-If it does disconnect, use tmux attach to get back to where you were before. 
+Use the `tmux` command to keep your vm running in case it disconnects.
+If it does disconnect, use `tmux attach` to get back to where you were before. 
 
-updates
+Run your normals system updates
 
-download edit
-wget https://github.com/microsoft/edit/releases/download/v1.2.1/edit-1.2.0-x86_64-linux-gnu.tar.zst
-tar -xf  edit-1.2.0-x86_64-linux-gnu.tar.zst
-sudo install -m 0755 edit /usr/local/bin/edit
+`sudo apt update`  
+`sudo apt upgrade`
+`sudo apt autoremove -y && sudo apt clean` - this will clean up any un-needed files for disk space
+
+This new VM will need a text editor downloaded, I used EDIT:
+
+`wget https://github.com/microsoft/edit/releases/download/v1.2.1/edit-1.2.0-x86_64-linux-gnu.tar.zst`  
+`tar -xf  edit-1.2.0-x86_64-linux-gnu.tar.zst`  
+`sudo install -m 0755 edit /usr/local/bin/edit`  
+
+**Download Koha**
+
+`sudo apt install apt-transport-https ca-certificates curl`
+`sudo mkdir -p --mode=0755 /etc/apt/keyrings`
+`sudo curl -fsSL https://debian.koha-community.org/koha/gpg.asc -o /etc/apt/keyrings/koha.asc`
+
+Become the root user by using the following command:
+
+`sudo su`
+
+*Carefully copy and paste this information into the terminal:*
+>
+>tee /etc/apt/sources.list.d/koha.sources <<EOF
+>Types: deb
+>URIs: https://debian.koha-community.org/koha/
+>Suites: 25.05
+>Components: main
+>Signed-By: /etc/apt/keyrings/koha.asc
+>EOF
+
+Now use the `cat /etc/apt/sources.list.d/koha.sources`  command to confirm what you have added is correct.
+
+Exit out of the root user `Exit`
+
+## Install MariaDB
+
+We will be using the MariaDB as our relational database, and must install it separately from Koha. 
+
+`sudo apt update`  
+`sudo apt install mariadb-server`  
+
+Run `sudo apt update` before running the Koha install
+
+## Install Koha
+
+`apt show koha-common`  
+`sudo apt install koha-common`  
+
+We want to copy our configuration file, because we need to make a change to it and want to ensure we have a backup. Do this by using the following command:
+
+`sudo cp /etc/koha/koha-sites.conf /etc/koha/koha-sites.conf.backup` 
+
+Now we want to open this file in the text editor we use:
+
+`sudo edit /etc/koha/koha-sites.conf`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
