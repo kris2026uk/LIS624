@@ -10,51 +10,47 @@ We need to make it the same system as before, only larger.
 
 Go to create new VM and use the following:
 
-Name your VM - (I used v.3 for mine) 
+- Name your VM - (I used v.3 for mine) 
+- Machine Configuration: e2-medium (2vCPU, 1 core, 4 GB memory)
+- Ubuntu 24.04 lts minimal 86/64  at 20 gb
+- Allow HTTP traffic 
 
-Machine Configuration: e2-medium (2vCPU, 1 core, 4 GB memory)
+**Ensure the following Network tags are added!! Your VM will not connect if they are not added**
 
-Ubuntu 24.04 lts minimal 86/64  at 20 gb
-
-Allow HTTP traffic 
-
-*Ensure the following Network tags are added!! Your VM will not connect if they are not added*
-
-koha-staff-8080
-koha-opac-8081
-
-SAVE 
+- koha-staff-8080
+- koha-opac-8081
+- SAVE 
 
 ### Add Firewall
-We need to create two new firewall rules.
 
-Open VPC network on Google Cloud
+We need to create two new firewall rules in order for our staff and patrons can access the different sites.
 
-Click Firewall
+- Open VPC network on Google Cloud
+- Click Firewall
 
-*Create Firewall Rule no. 1
+**Create Firewall Rule no. 1**
 
-Add the name koha-staff-8080
-Add the Description Open port 8080 for the Koha staff interface
-Click on SPeciified target tags
-In Target tags att - koha-staff-8080
-for Source IPv4 - allow access from anywhere - add (0.0.0.0/0)
-Click on Specified protocols and ports
-  Click on TCP
-  Add 8080 into the ports box
-Click create
+- Add the name koha-staff-8080
+- Add the Description Open port 8080 for the Koha staff interface
+- Click on SPeciified target tags
+- In Target tags add - koha-staff-8080
+- Source IPv4 - allow access from anywhere - add (0.0.0.0/0)
+- Click on Specified protocols and ports
+- Click on TCP
+- Add 8080 into the ports box
+- Click create
 
-*Create Firewall Rule no. 2
+**Create Firewall Rule no. 2**
 
-Add the name koha-opac-8081
-Add the Description Open port 8081 for the Koha OPAC interface
-Click on SPeciified target tags
-In Target tags att - koha-opac-8081
-for Source IPv4 - allow access from anywhere - add (0.0.0.0/0)
-Click on Specified protocols and ports
-  Click on TCP
-  Add 8080 into the ports box
-Click create
+- Add the name koha-opac-8081
+- Add the Description Open port 8081 for the Koha OPAC interface
+- Click on SPeciified target tags
+- In Target tags add - koha-opac-8081
+- Source IPv4 - allow access from anywhere - add (0.0.0.0/0)
+- Click on Specified protocols and ports
+- Click on TCP
+- Add 8080 into the ports box
+- Click create
 
 ### Open your new VM
 
