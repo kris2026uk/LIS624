@@ -115,11 +115,63 @@ Now we want to open this file in the text editor we use:
 
 `sudo edit /etc/koha/koha-sites.conf`
 
+Add your IP address in the web address section "IPADDRESS"  
+Where it says INTRAPORT= add "8080"  
+Where it says OPACPORT= add "8081"
 
+## Enable Apache2 modules
 
+Apache2 was installed with Koha, but we need some additional modules:
 
+`sudo a2enmod rewrite cgi headers proxy_http`  
+`sudo systemctl restart apache2`
 
+We want to ensure our ports are also configured for Apache2
 
+1. First make a copy of the configuration file:
+   
+`sudo cp /etc/apache2/ports.conf /etc/apache2/ports.conf.backup`
+
+2. Open the configuration file with the text editor
+
+ `sudo edit /etc/apache2/ports.conf`
+
+Add the following two lines under `Listen 80`
+
+`Listen 8080`  
+`Listen 8081`  
+
+3. Add the following commands to complete the apache2 configuration:
+   
+`sudo a2dissite 000-default`  
+`sudo a2enmod deflate`  
+`sudo a2ensite bibliolib`  
+
+4. Finally! We reload and restart Apache2 with the following commands:
+
+`sudo systemctl reload apache2`  
+`sudo systemctl restart apache2`  
+
+## Create Koha username and password
+
+Koha will autocreate a username and password using the following command:
+
+`sudo koha-passwd bibliolib`
+
+`Example:`  
+`Username for bibliolib: koha_bibliolib`
+`Password for bibliolib: M(x_d40k.{;_=;zG`
+`Press enter to clear the screen...`
+
+I suggest taking a screenshot and saving this information, it can be helpful in the future.
+
+Test your Koha website to confirm that it works by adding the following to your browser:
+
+`http://yourIP:8080`  
+to test the public site use this web address:  
+`http://yourIP:8081`  
+
+If you get a pop up of a login screen... **SUCCESS!!** You have completed the backend setup for Koha. Add your username and password to the login screen and finish setting up your Koha installation.
 
 
 
